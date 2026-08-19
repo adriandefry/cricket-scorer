@@ -7,69 +7,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Mono:wght@400;500&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #1a6b3c;
-    --green-light: #2d9e5f;
-    --green-dark: #0f3d22;
-    --cream: #faf6ef;
-    --red: #c0392b;
-    --red-light: #e74c3c;
-    --gold: #f0c040;
+    --navy: #1b2a4a;
+    --navy-mid: #2f4972;
+    --navy-light: #5b7fb5;
+    --navy-dark: #0f1b30;
+    --cream: #f6f4ef;
+    --crimson: #b8322f;
+    --crimson-light: #d1544f;
+    --gold: #d4af37;
+    --gold-light: #e8c766;
     --text-dark: #1a1a1a;
     --text-mid: #555;
     --text-light: #888;
     --border: #ddd;
-    --shadow: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow: 0 4px 20px rgba(15,27,48,0.14);
     --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  body { font-family: 'Barlow', sans-serif; background: var(--green-dark); min-height: 100vh; color: var(--text-dark); }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy-dark); min-height: 100vh; color: var(--text-dark); }
   .app { max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--cream); display: flex; flex-direction: column; }
 
-  .header { background: var(--green); color: white; padding: 16px 20px 14px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+  .header { background: var(--navy); color: white; padding: 16px 20px 14px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.35); border-bottom: 3px solid var(--gold); }
   .header-title { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
-  .header-sub { font-size: 12px; opacity: 0.75; font-family: 'DM Mono', monospace; }
+  .header-sub { font-size: 12px; opacity: 0.8; font-family: 'DM Mono', monospace; color: var(--gold-light); }
 
   .screen { display: none; flex-direction: column; flex: 1; }
   .screen.active { display: flex; }
 
   .setup-body { padding: 24px 20px; flex: 1; overflow-y: auto; }
-  .setup-section { background: white; border-radius: var(--radius); padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .setup-section h3 { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--green); margin-bottom: 14px; border-bottom: 2px solid var(--green-light); padding-bottom: 8px; }
+  .setup-section { background: white; border-radius: var(--radius); padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(15,27,48,0.08); }
+  .setup-section h3 { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--navy); margin-bottom: 14px; border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
   .form-row { margin-bottom: 14px; }
   .form-row:last-child { margin-bottom: 0; }
   .form-row label { display: block; font-size: 13px; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
   .form-row input[type=text] { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 15px; font-family: 'Barlow', sans-serif; font-weight: 500; outline: none; transition: border-color 0.2s; }
-  .form-row input[type=text]:focus { border-color: var(--green-light); }
+  .form-row input[type=text]:focus { border-color: var(--navy-light); }
 
-  .seg-control { display: flex; background: #f0f0f0; border-radius: 8px; padding: 3px; gap: 3px; }
+  .seg-control { display: flex; background: #eef1f6; border-radius: 8px; padding: 3px; gap: 3px; }
   .seg-btn { flex: 1; padding: 8px 4px; border: none; background: transparent; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; color: var(--text-mid); }
-  .seg-btn.active { background: var(--green); color: white; box-shadow: 0 2px 6px rgba(26,107,60,0.4); }
+  .seg-btn.active { background: var(--navy); color: white; box-shadow: 0 2px 6px rgba(27,42,74,0.4); }
 
-  .primary-btn { background: var(--green); color: white; border: none; border-radius: var(--radius); padding: 16px; font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; width: 100%; cursor: pointer; text-transform: uppercase; transition: all 0.2s; box-shadow: 0 4px 14px rgba(26,107,60,0.4); }
-  .primary-btn:active { transform: scale(0.97); background: var(--green-dark); }
+  .primary-btn { background: var(--navy); color: white; border: none; border-radius: var(--radius); padding: 16px; font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; width: 100%; cursor: pointer; text-transform: uppercase; transition: all 0.2s; box-shadow: 0 4px 14px rgba(27,42,74,0.4); border: 1px solid var(--gold); }
+  .primary-btn:active { transform: scale(0.97); background: var(--navy-dark); }
 
   .toss-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; gap: 20px; overflow-y: auto; }
-  .toss-title { font-family: 'Rajdhani', sans-serif; font-size: 28px; font-weight: 700; color: var(--green-dark); text-align: center; }
+  .toss-title { font-family: 'Rajdhani', sans-serif; font-size: 28px; font-weight: 700; color: var(--navy-dark); text-align: center; }
   .toss-teams { display: flex; gap: 16px; width: 100%; }
   .toss-team-btn { flex: 1; border: 3px solid var(--border); background: white; border-radius: var(--radius); padding: 16px 12px; cursor: pointer; text-align: center; font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; transition: all 0.2s; color: var(--text-dark); }
-  .toss-team-btn.selected { border-color: var(--green); background: #e8f5ee; color: var(--green-dark); }
+  .toss-team-btn.selected { border-color: var(--navy); background: #eaf0fa; color: var(--navy-dark); }
   .toss-label { font-size: 13px; color: var(--text-light); font-weight: 600; margin-bottom: 6px; display: block; text-transform: uppercase; letter-spacing: 0.5px; }
 
   .coin-wrap { width: 110px; height: 110px; perspective: 600px; }
-  .coin { width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #f0c040, #c8860a); border: 4px solid #c8860a; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 6px 24px rgba(200,134,10,0.4); cursor: pointer; user-select: none; }
+  .coin { width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, var(--gold-light), var(--gold)); border: 4px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 6px 24px rgba(212,175,55,0.45); cursor: pointer; user-select: none; }
   .coin.spinning { animation: coinSpin 1.2s ease forwards; }
   @keyframes coinSpin { 0% { transform: rotateY(0); } 100% { transform: rotateY(1440deg); } }
 
-  .toss-result { background: var(--green); color: white; border-radius: var(--radius); padding: 18px 24px; text-align: center; width: 100%; display: none; }
+  .toss-result { background: var(--navy); color: white; border-radius: var(--radius); padding: 18px 24px; text-align: center; width: 100%; display: none; border: 1px solid var(--gold); }
   .toss-result.show { display: block; }
   .toss-result-name { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; }
-  .toss-result-sub { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+  .toss-result-sub { font-size: 14px; opacity: 0.85; margin-top: 4px; color: var(--gold-light); }
 
   .choice-btns { display: flex; gap: 12px; width: 100%; }
-  .choice-btn { flex: 1; border: 2px solid var(--green); background: white; color: var(--green); border-radius: var(--radius); padding: 14px; font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
-  .choice-btn.chosen { background: var(--green); color: white; }
+  .choice-btn { flex: 1; border: 2px solid var(--navy); background: white; color: var(--navy); border-radius: var(--radius); padding: 14px; font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+  .choice-btn.chosen { background: var(--navy); color: white; }
 
-  .score-header { background: var(--green); color: white; padding: 14px 20px; }
+  .score-header { background: var(--navy); color: white; padding: 14px 20px; border-bottom: 3px solid var(--gold); }
   .score-teams-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
   .score-team-block { flex: 1; }
   .score-team-name { font-size: 11px; opacity: 0.75; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
@@ -77,38 +79,43 @@
   .score-runs span { font-size: 18px; opacity: 0.9; }
   .score-overs { font-family: 'DM Mono', monospace; font-size: 12px; opacity: 0.8; margin-top: 2px; }
   .score-divider { width: 1px; background: rgba(255,255,255,0.3); margin: 4px 0; }
-  .innings-badge { font-size: 10px; background: var(--gold); color: var(--green-dark); padding: 2px 8px; border-radius: 20px; font-weight: 700; letter-spacing: 0.5px; display: inline-block; margin-top: 4px; }
+  .innings-badge { font-size: 10px; background: var(--gold); color: var(--navy-dark); padding: 2px 8px; border-radius: 20px; font-weight: 700; letter-spacing: 0.5px; display: inline-block; margin-top: 4px; }
 
-  .target-bar { background: rgba(0,0,0,0.2); padding: 7px 20px; display: none; justify-content: space-between; align-items: center; font-size: 12px; color: white; }
+  .target-bar { background: rgba(0,0,0,0.25); padding: 7px 20px; display: none; justify-content: space-between; align-items: center; font-size: 12px; color: white; }
   .target-bar.show { display: flex; }
-  .target-bar b { font-family: 'Rajdhani', sans-serif; font-size: 15px; }
+  .target-bar b { font-family: 'Rajdhani', sans-serif; font-size: 15px; color: var(--gold-light); }
+
+  .bowler-row { background: white; padding: 10px 20px 6px; border-bottom: 1px solid #eee; }
+  .bowler-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); font-weight: 600; display: block; margin-bottom: 4px; }
+  .bowler-input { width: 100%; border: 2px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 14px; font-family: 'Barlow', sans-serif; font-weight: 500; outline: none; }
+  .bowler-input:focus { border-color: var(--navy-light); }
 
   .over-tracker { background: white; padding: 12px 20px; border-bottom: 1px solid #eee; }
   .over-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); font-weight: 600; margin-bottom: 8px; }
   .balls-row { display: flex; gap: 6px; flex-wrap: wrap; }
   .ball { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; border: 2px solid #e0e0e0; background: #f5f5f5; color: var(--text-light); }
   .ball.dot { background: #eee; color: #888; border-color: #ddd; }
-  .ball.one { background: #d4edda; color: #155724; border-color: #c3e6cb; }
-  .ball.two { background: #cce5ff; color: #004085; border-color: #b8daff; }
+  .ball.one { background: #dbe9fb; color: #1b4a7a; border-color: #c3ddf7; }
+  .ball.two { background: #c7dcf5; color: #123a63; border-color: #aecbee; }
   .ball.three { background: #e2d9f3; color: #6f42c1; border-color: #d6c8f0; }
-  .ball.four { background: #fff3cd; color: #856404; border-color: #ffeeba; font-weight: 700; }
-  .ball.six { background: var(--red); color: white; border-color: var(--red-light); font-weight: 700; }
+  .ball.four { background: var(--gold-light); color: #6b4e00; border-color: var(--gold); font-weight: 700; }
+  .ball.six { background: var(--crimson); color: white; border-color: var(--crimson-light); font-weight: 700; }
   .ball.wide { background: #f8d7da; color: #721c24; border-color: #f5c6cb; }
   .ball.noball { background: #ffe5b4; color: #8a4500; border-color: #ffd080; }
-  .ball.wicket { background: var(--green-dark); color: white; border-color: var(--green); font-weight: 700; }
+  .ball.wicket { background: var(--navy-dark); color: white; border-color: var(--navy); font-weight: 700; }
 
   .score-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
   .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 10px; }
-  .run-btn { aspect-ratio: 1; border: none; border-radius: 10px; font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; cursor: pointer; transition: all 0.12s; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  .run-btn { aspect-ratio: 1; border: none; border-radius: 10px; font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; cursor: pointer; transition: all 0.12s; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 2px 6px rgba(15,27,48,0.12); }
   .run-btn:active { transform: scale(0.93); }
   .btn-0 { background: #f0f0f0; color: #555; }
-  .btn-1 { background: #d4edda; color: #155724; }
-  .btn-2 { background: #cce5ff; color: #004085; }
+  .btn-1 { background: #dbe9fb; color: #1b4a7a; }
+  .btn-2 { background: #c7dcf5; color: #123a63; }
   .btn-3 { background: #e2d9f3; color: #6f42c1; }
-  .btn-4 { background: var(--gold); color: #6b4e00; }
+  .btn-4 { background: var(--gold); color: #5c4300; }
   .btn-5 { background: #ffd1a9; color: #8a4500; }
-  .btn-6 { background: var(--red); color: white; }
-  .btn-W { background: var(--green-dark); color: white; }
+  .btn-6 { background: var(--crimson); color: white; }
+  .btn-W { background: var(--navy-dark); color: white; }
 
   .extras-row { display: flex; gap: 8px; margin-bottom: 10px; }
   .extras-row .run-btn { flex: 1; height: 52px; aspect-ratio: auto; font-size: 14px; border-radius: 10px; }
@@ -119,38 +126,70 @@
   .undo-btn { width: 100%; border: 2px solid #ddd; background: white; border-radius: 10px; padding: 11px; font-family: 'Barlow', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-mid); cursor: pointer; }
 
   .over-history-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); font-weight: 600; margin-bottom: 8px; }
-  .prev-over { background: white; border-radius: 8px; padding: 10px 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .prev-over-label { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-light); min-width: 50px; }
+  .prev-over { background: white; border-radius: 8px; padding: 10px 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; box-shadow: 0 1px 4px rgba(15,27,48,0.08); }
+  .prev-over-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-light); min-width: 60px; line-height: 1.3; }
+  .prev-over-label b { display: block; font-family: 'Barlow', sans-serif; font-size: 11px; color: var(--navy); font-weight: 600; }
   .prev-over-balls { display: flex; gap: 4px; flex-wrap: wrap; flex: 1; }
   .prev-over-ball { width: 28px; height: 28px; border-radius: 50%; font-family: 'DM Mono', monospace; font-size: 9px; display: flex; align-items: center; justify-content: center; font-weight: 500; }
-  .prev-over-total { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--green-dark); min-width: 32px; text-align: right; }
+  .prev-over-total { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy-dark); min-width: 32px; text-align: right; }
 
   .result-body { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 32px 24px; gap: 20px; overflow-y: auto; }
-  .result-card { background: white; border-radius: var(--radius); padding: 20px; width: 100%; box-shadow: var(--shadow); }
-  .result-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--green); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }
+  .result-card { background: white; border-radius: var(--radius); padding: 20px; width: 100%; box-shadow: var(--shadow); border-top: 3px solid var(--gold); }
+  .result-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--navy); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }
   .result-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #f5f5f5; font-size: 15px; }
   .result-row:last-child { border-bottom: none; }
-  .result-row b { font-family: 'DM Mono', monospace; font-size: 18px; color: var(--green-dark); }
-  .winner-badge { background: var(--green); color: white; border-radius: var(--radius); padding: 20px 24px; text-align: center; width: 100%; }
-  .winner-badge .trophy { font-size: 40px; margin-bottom: 8px; }
-  .winner-badge h2 { font-family: 'Rajdhani', sans-serif; font-size: 26px; font-weight: 700; }
-  .winner-badge p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+  .result-row b { font-family: 'DM Mono', monospace; font-size: 18px; color: var(--navy-dark); }
 
-  .innings-mid-card { background: var(--green); color: white; border-radius: var(--radius); padding: 24px; text-align: center; width: 100%; }
+  .scorecard-teams { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
+  .team-pill { flex: 1; text-align: center; padding: 8px 10px; border-radius: 20px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.5px; }
+  .team-pill.away { background: #eef1f6; color: var(--text-mid); }
+  .team-pill.home { background: var(--navy); color: white; }
+
+  .bowling-table-wrap { overflow-x: auto; margin-bottom: 14px; border-radius: 8px; border: 1px solid #eee; }
+  .bowling-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .bowling-table thead tr { background: var(--navy); color: white; }
+  .bowling-table th { padding: 8px 6px; font-family: 'Rajdhani', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; }
+  .bowling-table th:first-child, .bowling-table td:first-child { text-align: left; padding-left: 10px; }
+  .bowling-table td { padding: 7px 6px; text-align: center; border-bottom: 1px solid #f0f0f0; font-family: 'DM Mono', monospace; color: var(--text-dark); }
+  .bowling-table tbody tr:nth-child(even) { background: #f8f9fb; }
+
+  .fow-section { margin-bottom: 14px; }
+  .fow-section-title { background: var(--navy); color: white; font-family: 'Rajdhani', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; padding: 6px 10px; border-radius: 6px 6px 0 0; }
+  .fow-row { display: flex; overflow-x: auto; border: 1px solid #eee; border-top: none; border-radius: 0 0 6px 6px; }
+  .fow-col { flex: 0 0 auto; min-width: 40px; text-align: center; border-right: 1px solid #eee; padding: 6px 4px; }
+  .fow-col:last-child { border-right: none; }
+  .fow-num { display: block; font-size: 10px; color: var(--text-light); font-weight: 600; }
+  .fow-score { display: block; font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--navy-dark); font-size: 14px; margin-top: 2px; }
+  .fow-col.empty { color: #999; font-size: 12px; padding: 10px; min-width: 100%; }
+
+  .pill-row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .info-pill { flex: 1; background: #eef1f6; border-radius: 20px; padding: 8px 12px; text-align: center; font-size: 11px; font-weight: 600; color: var(--text-mid); letter-spacing: 0.5px; min-width: 90px; }
+  .info-pill b { display: block; font-family: 'Rajdhani', sans-serif; font-size: 16px; color: var(--navy-dark); margin-top: 2px; }
+  .info-pill.total { background: var(--gold); color: var(--navy-dark); }
+  .info-pill.total b { color: var(--navy-dark); }
+
+  .boundaries-line { font-size: 12px; color: var(--text-mid); text-align: center; font-weight: 600; }
+
+  .winner-badge { background: var(--navy); color: white; border-radius: var(--radius); padding: 22px 24px; text-align: center; width: 100%; border: 1px solid var(--gold); box-shadow: var(--shadow); }
+  .winner-badge .trophy { font-size: 40px; margin-bottom: 8px; }
+  .winner-badge h2 { font-family: 'Rajdhani', sans-serif; font-size: 26px; font-weight: 700; color: var(--gold-light); }
+  .winner-badge p { font-size: 14px; opacity: 0.9; margin-top: 4px; }
+
+  .innings-mid-card { background: var(--navy); color: white; border-radius: var(--radius); padding: 24px; text-align: center; width: 100%; border: 1px solid var(--gold); }
   .innings-mid-card h2 { font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; }
-  .innings-mid-card .big-score { font-family: 'Rajdhani', sans-serif; font-size: 52px; font-weight: 700; line-height: 1; margin: 12px 0 4px; }
+  .innings-mid-card .big-score { font-family: 'Rajdhani', sans-serif; font-size: 52px; font-weight: 700; line-height: 1; margin: 12px 0 4px; color: var(--gold-light); }
   .innings-mid-card p { font-size: 14px; opacity: 0.85; margin-top: 6px; }
 
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: flex-end; z-index: 100; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(15,27,48,0.6); display: none; align-items: flex-end; z-index: 100; }
   .modal-overlay.open { display: flex; }
-  .modal { background: white; border-radius: 20px 20px 0 0; padding: 24px 20px 36px; width: 100%; max-width: 480px; margin: 0 auto; }
-  .modal h3 { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; text-align: center; }
+  .modal { background: white; border-radius: 20px 20px 0 0; padding: 24px 20px 36px; width: 100%; max-width: 480px; margin: 0 auto; border-top: 3px solid var(--gold); }
+  .modal h3 { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy-dark); margin-bottom: 6px; text-align: center; }
   .modal-sub { text-align: center; font-size: 13px; color: #888; margin-bottom: 16px; }
   .modal-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
   .modal-btns.two-col { grid-template-columns: 1fr 1fr; }
   .modal-btn { padding: 14px 8px; border: 2px solid #ddd; border-radius: 10px; background: white; font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; transition: all 0.15s; color: var(--text-dark); }
   .modal-btn small { display: block; font-size: 11px; color: #888; font-weight: 400; margin-top: 2px; }
-  .modal-btn:active { border-color: var(--green); background: #e8f5ee; }
+  .modal-btn:active { border-color: var(--navy); background: #eaf0fa; }
   .modal-cancel { width: 100%; padding: 13px; border: none; background: #f0f0f0; border-radius: 10px; font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-mid); cursor: pointer; }
 </style>
 </head>
@@ -256,6 +295,11 @@
       <span>Need: <b id="needRuns"></b> off <b id="needBalls"></b> balls</span>
     </div>
 
+    <div class="bowler-row">
+      <label class="bowler-label">Current Bowler</label>
+      <input type="text" id="bowlerInput" class="bowler-input" placeholder="Enter bowler name" oninput="bowlerName = this.value">
+    </div>
+
     <div class="over-tracker">
       <div class="over-label" id="overLabel">Over 1 – Ball by Ball</div>
       <div class="balls-row" id="currentBalls"></div>
@@ -316,18 +360,8 @@
         <h2 id="winnerName"></h2>
         <p id="winnerDesc"></p>
       </div>
-      <div class="result-card">
-        <h3 id="inn1TeamLabel"></h3>
-        <div class="result-row"><span>Score</span><b id="inn1Score"></b></div>
-        <div class="result-row"><span>Overs</span><b id="inn1Overs"></b></div>
-        <div class="result-row"><span>Extras (W/NB)</span><b id="inn1Extras"></b></div>
-      </div>
-      <div class="result-card">
-        <h3 id="inn2TeamLabel"></h3>
-        <div class="result-row"><span>Score</span><b id="inn2Score"></b></div>
-        <div class="result-row"><span>Overs</span><b id="inn2Overs"></b></div>
-        <div class="result-row"><span>Extras (W/NB)</span><b id="inn2Extras"></b></div>
-      </div>
+      <div id="scorecard1"></div>
+      <div id="scorecard2"></div>
       <button class="primary-btn" onclick="newMatch()">New Match 🏏</button>
     </div>
   </div>
@@ -376,6 +410,7 @@ const state = {
     { runs: 0, wickets: 0, wides: 0, noBalls: 0, balls: [], completedOvers: [] }
   ]
 };
+let bowlerName = '';
 
 function curInn() { return state.inningsData[state.innings]; }
 function legalBalls(balls) { return balls.filter(b => b.type !== 'wide' && b.type !== 'noball').length; }
@@ -456,6 +491,8 @@ function startMatch() {
     { runs: 0, wickets: 0, wides: 0, noBalls: 0, balls: [], completedOvers: [] },
     { runs: 0, wickets: 0, wides: 0, noBalls: 0, balls: [], completedOvers: [] }
   ];
+  bowlerName = '';
+  document.getElementById('bowlerInput').value = '';
   showScreen('screenScoring');
   updateScoringUI();
 }
@@ -539,8 +576,8 @@ function renderOverHistory() {
     const i = inn.completedOvers.length - 1 - ri;
     const el = document.createElement('div');
     el.className = 'prev-over';
-    const overRuns = ov.reduce((s, b) => s + b.runs, 0);
-    el.innerHTML = `<div class="prev-over-label">Ov ${i+1}</div><div class="prev-over-balls">${ov.map(b=>`<div class="prev-over-ball ${ballClass(b)}">${ballLabel(b)}</div>`).join('')}</div><div class="prev-over-total">${overRuns}</div>`;
+    const overRuns = ov.balls.reduce((s, b) => s + b.runs, 0);
+    el.innerHTML = `<div class="prev-over-label">Ov ${i+1}<b>${ov.bowler}</b></div><div class="prev-over-balls">${ov.balls.map(b=>`<div class="prev-over-ball ${ballClass(b)}">${ballLabel(b)}</div>`).join('')}</div><div class="prev-over-total">${overRuns}</div>`;
     container.appendChild(el);
   });
 }
@@ -566,7 +603,12 @@ function addExtra(type, runs) {
 function undoLast() {
   const inn = curInn();
   if (inn.balls.length === 0 && inn.completedOvers.length === 0) return;
-  if (inn.balls.length === 0) inn.balls = inn.completedOvers.pop();
+  if (inn.balls.length === 0) {
+    const lastOver = inn.completedOvers.pop();
+    inn.balls = lastOver.balls;
+    bowlerName = lastOver.bowler;
+    document.getElementById('bowlerInput').value = lastOver.bowler;
+  }
   const b = inn.balls.pop();
   inn.runs -= b.runs;
   if (b.type === 'wicket') inn.wickets--;
@@ -589,7 +631,7 @@ function closeWicketModal() { document.getElementById('wicketModal').classList.r
 function confirmWicket(howOut) {
   closeWicketModal();
   const inn = curInn();
-  inn.balls.push({ type: 'wicket', runs: 0, howOut });
+  inn.balls.push({ type: 'wicket', runs: 0, howOut, scoreAtFall: inn.runs });
   inn.wickets++;
   if (legalBalls(inn.balls) === 6) endOver();
   else checkInningsEnd();
@@ -598,8 +640,11 @@ function confirmWicket(howOut) {
 
 function endOver() {
   const inn = curInn();
-  inn.completedOvers.push([...inn.balls]);
+  const nameToUse = bowlerName.trim() || ('Bowler ' + (inn.completedOvers.length + 1));
+  inn.completedOvers.push({ bowler: nameToUse, balls: [...inn.balls] });
   inn.balls = [];
+  bowlerName = '';
+  document.getElementById('bowlerInput').value = '';
   checkInningsEnd(true);
 }
 
@@ -636,16 +681,96 @@ function showInningsBreak() {
 function startSecondInnings() {
   state.innings = 1;
   state.battingTeam = 1 - state.battingTeam;
+  bowlerName = '';
+  document.getElementById('bowlerInput').value = '';
   showScreen('screenScoring');
   updateScoringUI();
+}
+
+// STATS / SCORECARD HELPERS
+function inningsStats(inn) {
+  const allBalls = inn.completedOvers.flatMap(o => o.balls).concat(inn.balls);
+  const fours = allBalls.filter(b => b.type === 'run' && b.runs === 4).length;
+  const sixes = allBalls.filter(b => b.type === 'run' && b.runs === 6).length;
+  const lb = inn.completedOvers.length * 6 + legalBalls(inn.balls);
+  const oversDecimal = lb / 6;
+  const runRate = oversDecimal > 0 ? (inn.runs / oversDecimal).toFixed(2) : '0.00';
+  return { fours, sixes, runRate };
+}
+
+function bowlingStats(inn) {
+  const map = {};
+  const order = [];
+  inn.completedOvers.forEach((ov, idx) => {
+    const name = ov.bowler && ov.bowler.trim() ? ov.bowler.trim() : ('Bowler ' + (idx + 1));
+    if (!map[name]) { map[name] = { overs: 0, maidens: 0, runs: 0, wickets: 0 }; order.push(name); }
+    const overRuns = ov.balls.reduce((s, b) => s + b.runs, 0);
+    map[name].overs += 1;
+    map[name].runs += overRuns;
+    if (overRuns === 0) map[name].maidens += 1;
+    map[name].wickets += ov.balls.filter(b => b.type === 'wicket' && b.howOut !== 'Run Out').length;
+  });
+  return order.map(name => {
+    const s = map[name];
+    return { name, overs: s.overs, maidens: s.maidens, runs: s.runs, wickets: s.wickets, economy: s.overs > 0 ? (s.runs / s.overs).toFixed(2) : '0.00' };
+  });
+}
+
+function fallOfWickets(inn) {
+  const allBalls = inn.completedOvers.flatMap(o => o.balls).concat(inn.balls);
+  return allBalls.filter(b => b.type === 'wicket').map(b => b.scoreAtFall);
+}
+
+function buildInningsScorecardHTML(battingTeam, bowlingTeam, inn, label) {
+  const bowlers = bowlingStats(inn);
+  const fow = fallOfWickets(inn);
+  const s = inningsStats(inn);
+  const bowlerRows = bowlers.length
+    ? bowlers.map(b => `<tr><td>${b.name}</td><td>${b.overs}</td><td>${b.maidens}</td><td>${b.runs}</td><td>${b.wickets}</td><td>${b.economy}</td></tr>`).join('')
+    : `<tr><td colspan="6" style="text-align:center;color:#999;padding:14px;">No overs bowled</td></tr>`;
+  const fowCells = fow.length
+    ? fow.map((score, i) => `<div class="fow-col"><span class="fow-num">${i + 1}</span><span class="fow-score">${score}</span></div>`).join('')
+    : '<div class="fow-col empty">No wickets fell</div>';
+  return `
+    <div class="result-card">
+      <h3>${label}</h3>
+      <div class="scorecard-teams">
+        <span class="team-pill away">${battingTeam}</span>
+        <span class="team-pill home">${bowlingTeam}</span>
+      </div>
+      <div class="bowling-table-wrap">
+        <table class="bowling-table">
+          <thead><tr><th>Bowler</th><th>O</th><th>M</th><th>R</th><th>W</th><th>Econ</th></tr></thead>
+          <tbody>${bowlerRows}</tbody>
+        </table>
+      </div>
+      <div class="fow-section">
+        <div class="fow-section-title">Fall of Wickets</div>
+        <div class="fow-row">${fowCells}</div>
+      </div>
+      <div class="pill-row">
+        <span class="info-pill">Extras<b>${inn.wides + inn.noBalls}</b></span>
+        <span class="info-pill">Overs<b>${inn.completedOvers.length}.${legalBalls(inn.balls)}</b></span>
+        <span class="info-pill total">Total<b>${inn.runs}/${inn.wickets}</b></span>
+      </div>
+      <div class="boundaries-line">Boundaries: ${s.fours} Fours · ${s.sixes} Sixes · Run Rate ${s.runRate}</div>
+    </div>
+  `;
 }
 
 // RESULT
 function endMatch() {
   const inn1 = state.inningsData[0];
   const inn2 = state.inningsData[1];
-  const inn1BatTeam = state.innings === 1 ? state.teams[1 - state.battingTeam] : state.teams[state.battingTeam];
-  const inn2BatTeam = state.teams[state.battingTeam];
+  const inn1BatIndex = state.innings === 1 ? (1 - state.battingTeam) : state.battingTeam;
+  const inn1BowlIndex = 1 - inn1BatIndex;
+  const inn2BatIndex = state.battingTeam;
+  const inn2BowlIndex = 1 - inn2BatIndex;
+  const inn1BatTeam = state.teams[inn1BatIndex];
+  const inn1BowlTeam = state.teams[inn1BowlIndex];
+  const inn2BatTeam = state.teams[inn2BatIndex];
+  const inn2BowlTeam = state.teams[inn2BowlIndex];
+
   let winnerName, winnerDesc;
   if (inn2.runs > inn1.runs) {
     const w = (state.players - 1) - inn2.wickets;
@@ -661,14 +786,8 @@ function endMatch() {
   }
   document.getElementById('winnerName').textContent = winnerName;
   document.getElementById('winnerDesc').textContent = winnerDesc;
-  document.getElementById('inn1TeamLabel').textContent = inn1BatTeam + ' – 1st Innings';
-  document.getElementById('inn1Score').textContent = inn1.runs + '/' + inn1.wickets;
-  document.getElementById('inn1Overs').textContent = inn1.completedOvers.length + '.' + legalBalls(inn1.balls) + ' / ' + state.totalOvers;
-  document.getElementById('inn1Extras').textContent = (inn1.wides + inn1.noBalls) + ' (W:' + inn1.wides + ' NB:' + inn1.noBalls + ')';
-  document.getElementById('inn2TeamLabel').textContent = inn2BatTeam + ' – 2nd Innings';
-  document.getElementById('inn2Score').textContent = inn2.runs + '/' + inn2.wickets;
-  document.getElementById('inn2Overs').textContent = inn2.completedOvers.length + '.' + legalBalls(inn2.balls) + ' / ' + state.totalOvers;
-  document.getElementById('inn2Extras').textContent = (inn2.wides + inn2.noBalls) + ' (W:' + inn2.wides + ' NB:' + inn2.noBalls + ')';
+  document.getElementById('scorecard1').innerHTML = buildInningsScorecardHTML(inn1BatTeam, inn1BowlTeam, inn1, '1st Innings');
+  document.getElementById('scorecard2').innerHTML = buildInningsScorecardHTML(inn2BatTeam, inn2BowlTeam, inn2, '2nd Innings');
   showScreen('screenResult');
   document.getElementById('headerSub').textContent = 'Result';
 }
